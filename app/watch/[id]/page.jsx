@@ -17,7 +17,7 @@ const Page = () => {
   const GetServer = (itm) => {
     setIsPlayerReady(false);
     api
-      .get(`/stream?id=${q}&server=${itm.serverName}&type=${itm.type}`)
+      .get(`/stream?id=${q}&server=${itm?.serverName}&type=${itm?.type}`)
       .then((res) => {
         const data = res.data.results;
         setServer(data);
