@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.HeroSection::before{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    background-color:rgba(0, 0, 0, 0.178) ;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.noScrollBar::-webkit-scrollbar{
+    display: none;
+}
