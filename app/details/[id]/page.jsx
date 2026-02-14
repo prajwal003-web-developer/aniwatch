@@ -60,7 +60,7 @@ const Page = () => {
             {
                 ServerData.episodes.map((itm,idx)=>{
                     return (
-                        <Link href={`/watch?q=${itm.id}`} className=" h-fit p-2 text-nowrap flex-1 px-6 rounded text-center shadow shadow-gray-600 backdrop-blur-xs bg-[#ffffff21] cursor-pointer" key={idx}>
+                        <Link href={`/watch/${itm.id}`} className=" h-fit p-2 text-nowrap flex-1 px-6 rounded text-center shadow shadow-gray-600 backdrop-blur-xs bg-[#ffffff21] cursor-pointer" key={idx}>
                             ep: {itm.episode_no + "-> "}  {itm.title}
                         </Link>
                     )
