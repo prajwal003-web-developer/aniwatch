@@ -1,15 +1,16 @@
 "use client";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { api } from "../api";
-import LoadingPage from "../Components/LoadingPage";
+import { api } from "../../api";
+import LoadingPage from "../../Components/LoadingPage";
 
 
 
 const Page = () => {
-  const searchParams = useSearchParams();
+  const searchParams = useParams();
 
-  const q = searchParams.get("id").replaceAll("~","?")
+  const q = searchParams.id
+  
 
   const [IsLoading, setIsLoading] = useState(true);
   const [IsPlayerReady, setIsPlayerReady] = useState(false);
@@ -19,11 +20,13 @@ const Page = () => {
 
   const GetServer = (itm) => {
     setIsPlayerReady(false);
+   
     api
       .get(`/stream?id=${q}&server=${itm?.serverName}&type=${itm?.type}`)
       .then((res) => {
         const data = res.data.results;
         setServer(data);
+        console.log(data)
       })
       .finally(() => {
         setIsPlayerReady(true);
@@ -33,8 +36,10 @@ const Page = () => {
   useEffect(() => {
     if (q) {
       setIsLoading(true);
+       let q1 = q.replace("~","?").split("%")
+      const query = q1.length==2?q1[0]+"="+q1[1]:q
       api
-        .get(`/servers/${q}`)
+        .get(`/servers/${query}`)
         .then((res) => {
           const data = res.data.results;
           setData(data);
