@@ -1,18 +1,18 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { api } from "../api";
-import LoadingPage from "../Components/LoadingPage";
-import Box from "../Components/Box";
-import HeroSection from "../Components/HeroSection";
+import { api } from "../../api";
+import LoadingPage from "../../Components/LoadingPage";
+import Box from "../../Components/Box";
+import HeroSection from "../../Components/HeroSection";
 import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const searchParams = useSearchParams();
+  const searchParams = useParams();
   const router = useRouter();
 
-  const q = searchParams.get("q"); // ✅ correct way
+  const q = searchParams.q; // ✅ correct way
 
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
