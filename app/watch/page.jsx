@@ -9,7 +9,8 @@ import LoadingPage from "../Components/LoadingPage";
 const Page = () => {
   const searchParams = useSearchParams();
 
-  const q = searchParams.get("id"); // ✅ correct
+  const q = searchParams.get("id").replaceAll("~","?")
+
   const [IsLoading, setIsLoading] = useState(true);
   const [IsPlayerReady, setIsPlayerReady] = useState(false);
   const [Server, setServer] = useState({});
