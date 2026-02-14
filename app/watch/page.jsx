@@ -1,13 +1,15 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { api } from "../../api";
-import LoadingPage from "../../Components/LoadingPage";
+import { api } from "../api";
+import LoadingPage from "../Components/LoadingPage";
+
 
 
 const Page = () => {
-  const params = useParams();
-  const q = params.id;
+  const searchParams = useSearchParams();
+
+  const q = searchParams.get("id"); // ✅ correct
   const [IsLoading, setIsLoading] = useState(true);
   const [IsPlayerReady, setIsPlayerReady] = useState(false);
   const [Server, setServer] = useState({});

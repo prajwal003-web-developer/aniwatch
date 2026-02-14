@@ -1,7 +1,6 @@
 'use client'
 import { LoaderIcon } from 'lucide-react'
 import React from 'react'
-
 const LoadingPage = () => {
   return (
     <div className='h-[100dvh] flex justify-center items-center '>

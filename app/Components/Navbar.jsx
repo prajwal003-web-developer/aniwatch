@@ -89,7 +89,7 @@ const SearchBox = ({setisShowing})=>{
 
         console.log(Query)
 
-        router.push(`/search/${Query}`)
+        router.push(`/search?q=${Query}`)
 
         setisShowing(false)        
     }
