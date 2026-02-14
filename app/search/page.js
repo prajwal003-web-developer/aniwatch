@@ -1,6 +1,6 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+"use client"
 import { useSearchParams } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 import { api } from '../api'
 import LoadingPage from '../Components/LoadingPage'
 import Box from '../Components/Box'
